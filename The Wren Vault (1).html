@@ -1,10 +1,14 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Wren Vault</title>
-<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=IBM+Plex+Mono:wght@500;600&family=Saira+Stencil+One&display=swap">
 <style>
+*,*::before,*::after{box-sizing:border-box}
 /* Layout: one narrow case-file column; a lock tracker on top, one lock card at a time below. Steel ground, brass hardware, paper cipher tape. */
 :root{
   --bg:#E6EBEE; --panel:#F8FAFB; --ink:#14212B; --muted:#4F5E69; --line:#C3CDD3;
@@ -22,15 +26,15 @@
   --bg:#0E151A; --panel:#16212A; --ink:#E3E9ED; --muted:#97A6B0; --line:#2B3B47;
   --brass:#DDAA4C; --brass-soft:#3A2E14; --tape:#251F12; --tape-ink:#F1E3BE;
   --ok:#62C796; --ok-soft:#173527; --warn:#F2867B; --warn-soft:#3E1D1A; --hl:#6B5413; color-scheme:dark}
-
-body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55;
+ 
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px}
 .wrap{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
 h1,h2,h3{text-wrap:balance;margin:0}
 p{margin:0}
 button{font:inherit;cursor:pointer}
 :focus-visible{outline:3px solid var(--brass);outline-offset:2px}
-
+ 
 /* top bar */
 .bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .brand{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-size:1.25rem;letter-spacing:.04em}
@@ -43,7 +47,7 @@ button{font:inherit;cursor:pointer}
 .pip.done{border-color:var(--ok);background:var(--ok-soft);color:var(--ok)}
 .ghost{background:none;border:1px solid var(--line);color:var(--muted);border-radius:8px;padding:6px 12px;font-size:.85rem}
 .ghost:hover{color:var(--ink);border-color:var(--muted)}
-
+ 
 /* cards */
 .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:18px}
 .eyebrow{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--brass);font-weight:600}
@@ -55,10 +59,10 @@ button{font:inherit;cursor:pointer}
 .note{border-left:4px solid var(--brass);padding:4px 0 4px 14px;max-width:64ch}
 ul.list{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:8px}
 .safe{background:var(--ok-soft);border-radius:10px;padding:14px 16px;font-size:.95rem}
-
+ 
 .go{align-self:flex-start;background:var(--ink);color:var(--panel);border:0;border-radius:10px;padding:14px 22px;font-weight:700;font-size:1.05rem;letter-spacing:.02em}
 .go:hover{background:var(--brass);color:var(--ink)}
-
+ 
 /* cipher tape */
 .tape{background:var(--tape);color:var(--tape-ink);border-radius:8px;padding:16px 18px;font-family:var(--f-mono);font-weight:600;
   font-size:clamp(1.05rem,3.2vw,1.35rem);letter-spacing:.14em;line-height:1.9;word-break:break-word;
@@ -66,7 +70,7 @@ ul.list{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:8px}
 .tape .ml{cursor:pointer;border-radius:3px;padding:0 1px}
 .tape .ml:hover{background:var(--brass-soft)}
 .tape .ml.hl{background:var(--hl)}
-
+ 
 /* decoder */
 .dec{border:1px solid var(--line);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:12px}
 .ctl{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
@@ -85,9 +89,9 @@ input[type=range]{flex:1;min-width:140px;accent-color:var(--brass)}
 .cell.hl .b{background:var(--hl)}
 .keyin{font-family:var(--f-mono);font-size:1.2rem;letter-spacing:.15em;text-transform:uppercase;padding:10px 12px;border:2px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);width:min(100%,280px)}
 .legend{font-size:.85rem;color:var(--muted)}
-
+ 
 textarea{width:100%;min-height:96px;resize:vertical;font-family:var(--f-mono);font-size:1rem;letter-spacing:.06em;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);box-sizing:border-box}
-
+ 
 /* answer */
 .ans{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .ans input{flex:1;min-width:0;max-width:320px;font-family:var(--f-mono);font-size:1.3rem;letter-spacing:.18em;text-transform:uppercase;padding:12px 14px;border:2px solid var(--ink);border-radius:10px;background:var(--panel);color:var(--ink)}
@@ -95,12 +99,12 @@ textarea{width:100%;min-height:96px;resize:vertical;font-family:var(--f-mono);fo
 .msg.bad{color:var(--warn)}
 .hints{display:flex;flex-direction:column;gap:8px}
 .hint{background:var(--brass-soft);border-radius:8px;padding:10px 14px;font-size:.95rem}
-
+ 
 /* reveal */
 .reveal{border:2px solid var(--ok);background:var(--ok-soft)}
 .stamp{align-self:flex-start;font-family:var(--f-display);color:var(--ok);border:3px solid var(--ok);border-radius:6px;padding:2px 12px;font-size:1.4rem;letter-spacing:.08em;transform:rotate(-3deg)}
 .plain{font-family:var(--f-mono);font-weight:600;letter-spacing:.1em;background:var(--panel);border-radius:8px;padding:12px 14px}
-
+ 
 /* vault */
 .opts{display:flex;flex-direction:column;gap:10px}
 .opt{text-align:left;background:var(--bg);border:2px solid var(--line);border-radius:10px;padding:14px 16px;color:var(--ink)}
@@ -110,11 +114,14 @@ textarea{width:100%;min-height:96px;resize:vertical;font-family:var(--f-mono);fo
 .final{font-family:var(--f-mono);font-weight:600;font-size:clamp(1.15rem,3.6vw,1.6rem);letter-spacing:.1em;line-height:1.6;background:var(--tape);color:var(--tape-ink);border-radius:10px;padding:18px 20px}
 .confirm{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:.9rem}
 .danger{background:var(--warn);color:var(--panel);border:0;border-radius:8px;padding:6px 12px;font-weight:700}
-
+ 
 @media (max-width:460px){.card{padding:18px}.grid{gap:3px}}
 @media (prefers-reduced-motion:reduce){.brand svg{transition:none}}
 </style>
-
+</head>
+<body>
+<noscript><div style="max-width:640px;margin:40px auto;padding:20px;border:3px solid #A2372E;border-radius:12px;background:#F5DCD8;color:#14212B;font:18px/1.5 system-ui,sans-serif">
+<b>This case file needs JavaScript to run.</b> JavaScript is turned off or blocked on this device. Tell Mr. Grindstaff so he can check the settings.</div></noscript>
 <div class="wrap">
   <div class="bar">
     <div class="brand" id="brand">
@@ -134,7 +141,7 @@ textarea{width:100%;min-height:96px;resize:vertical;font-family:var(--f-mono);fo
   <main id="stage"></main>
   <div id="resetZone"></div>
 </div>
-
+ 
 <script>
 (function(){
 const A="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -142,7 +149,7 @@ const KEY="wrenVault.v1";
 // codewords are stored scrambled (ROT13 + reversed) so they are not sitting in plain text
 const unob=s=>s.split("").reverse().map(c=>A.includes(c)?A[(A.indexOf(c)+13)%26]:c).join("");
 const norm=s=>(s||"").toUpperCase().replace(/[^A-Z]/g,"");
-
+ 
 const LOCKS=[
  {name:"The Shift", tool:"shift",
   cipher:"QLFH ZRUN, FUHZ. WKH QHAW ORFN KLGHV LWV NHB. FRGHZRUG: ODQWHUQ",
@@ -173,17 +180,17 @@ const LOCKS=[
   named:"a keyword substitution cipher",
   why:"Any letter can stand for any other, so there are about 403 septillion possible tables (403 followed by 24 zeros). Trying them all would take far longer than a lifetime. So how did your crew get in? The keyword was sitting inside a weaker lock."}
 ];
-
+ 
 const FINAL="A LOCK IS ONLY AS STRONG AS THE WAY YOU GUARD ITS KEY.";
-
+ 
 let st={started:false,at:0,notes:{}};
 try{const s=JSON.parse(localStorage.getItem(KEY)||"null"); if(s&&typeof s.at==="number") st=Object.assign(st,s);}catch(e){}
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}};
 let justSolved=null, shiftVal=0, kwVal="", confirmReset=false;
-
+ 
 const $=s=>document.querySelector(s);
 const stage=$("#stage");
-
+ 
 function track(){
   const labels=["1","2","3","4","V"];
   $("#track").innerHTML=labels.map((l,i)=>{
@@ -192,7 +199,7 @@ function track(){
     return `<div class="pip ${cls}" title="${t}${i<st.at?" open":""}">${i<st.at?"✓":l}</div>`;
   }).join("");
 }
-
+ 
 function resetZone(){
   const z=$("#resetZone");
   if(!st.started){z.innerHTML="";return;}
@@ -204,9 +211,9 @@ function resetZone(){
     $("#rNo").onclick=()=>{confirmReset=false;resetZone();};
   } else $("#rAsk").onclick=()=>{confirmReset=true;resetZone();};
 }
-
+ 
 function spin(){const b=$("#brand");b.classList.remove("spin");void b.offsetWidth;b.classList.add("spin");}
-
+ 
 function render(){
   track(); resetZone();
   if(!st.started) return intro();
@@ -215,7 +222,7 @@ function render(){
   if(st.at===4) return vault();
   return win();
 }
-
+ 
 function intro(){
   stage.innerHTML=`<section class="card">
     <div class="eyebrow">Code Studio · Cybersecurity · Case file W-4</div>
@@ -234,7 +241,7 @@ function intro(){
   </section>`;
   $("#start").onclick=()=>{st.started=true;save();render();window.scrollTo({top:0});};
 }
-
+ 
 function mapFor(tool){
   if(tool==="shift") return m=>A[(A.indexOf(m)-shiftVal+26)%26];
   if(tool==="mirror") return m=>A[25-A.indexOf(m)];
@@ -243,7 +250,7 @@ function mapFor(tool){
   const ca=[...new Set((k+A).split(""))].join("");
   return m=>A[ca.indexOf(m)];
 }
-
+ 
 function lock(i){
   const L=LOCKS[i];
   if(L.tool==="shift") shiftVal=0;
@@ -279,7 +286,7 @@ function lock(i){
       <div class="msg" id="msg" role="status"></div></div>
     <div class="section"><div class="hints" id="hints"></div><button class="ghost" id="hbtn" style="align-self:flex-start">Show a hint</button></div>
   </section>`;
-
+ 
   let hl=null;
   const grid=$("#grid");
   function draw(){
@@ -308,10 +315,10 @@ function lock(i){
       $("#kwl").textContent=k?`Keyword alphabet: ${[...new Set((k+A).split(""))].join("")}`:"No keyword yet, so the table is blank.";draw();};
   }
   draw();
-
+ 
   const notes=$("#notes"); notes.value=(st.notes&&st.notes[i])||"";
   notes.oninput=()=>{st.notes=st.notes||{};st.notes[i]=notes.value;save();};
-
+ 
   let shown=0;
   $("#hbtn").onclick=()=>{
     if(shown<L.hints.length){$("#hints").insertAdjacentHTML("beforeend",`<div class="hint"><b>Hint ${shown+1}:</b> ${L.hints[shown]}</div>`);shown++;}
@@ -326,7 +333,7 @@ function lock(i){
     else{m.className="msg bad";m.textContent=`"${v}" doesn't open Lock ${i+1}. Check your table and try again.`;}
   };
 }
-
+ 
 function plainOf(i){
   const L=LOCKS[i];
   let f;
@@ -335,7 +342,7 @@ function plainOf(i){
   else {const ca=[...new Set((unob(LOCKS[0].ans)+A).split(""))].join(""); f=m=>A[ca.indexOf(m)];}
   return L.cipher.split("").map(c=>A.includes(c)?f(c):c).join("");
 }
-
+ 
 function reveal(i){
   const L=LOCKS[i], next=i<3?`Go to Lock ${i+2}`:"Go to the vault";
   stage.innerHTML=`<section class="card reveal">
@@ -347,7 +354,7 @@ function reveal(i){
   </section>`;
   $("#next").onclick=()=>{justSolved=null;render();window.scrollTo({top:0});};
 }
-
+ 
 function vault(){
   const opts=[
     {t:"The Shift. Nobody will ever guess the number.",fb:"Your crew found the number in Lock 2 with at most 25 tries. Anyone else can too."},
@@ -370,7 +377,7 @@ function vault(){
     $("#fb").innerHTML=`<div class="fb"><b>The vault stays shut.</b> ${o.fb}</div>`;
   };
 }
-
+ 
 function win(){
   stage.innerHTML=`<section class="card reveal">
     <div class="stamp">Vault open</div>
@@ -399,9 +406,10 @@ function win(){
     if(n>=total){clearInterval(t);el.textContent=FINAL;}
   },45);
 }
-
+ 
 render();
 })();
 </script>
-
-</body></html>
+</body>
+</html>
+ 
